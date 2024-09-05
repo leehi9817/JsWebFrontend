@@ -1,0 +1,38 @@
+body {
+  overflow: hidden; /* 넘치는 부분 처리 방법 */
+}
+
+.image {
+  position: relative; /* 요소를 일반적 배치하고 오프셋 적용 */
+  float: left;
+  height: 200px;
+  width: 300px;
+  margin: 2px;
+  border: 1px solid white;
+  z-index: 0; /* 위를 덮는 순서 (큰 수가 덮음) */
+}
+
+.image-selected {
+  border: 1px solid black;
+  background-color: white;
+}
+
+.image-selected > img {
+  opacity: 0.5;
+}
+
+.image > img {
+  height: 100%;
+}
+
+.image-magnified {
+  z-index: 1;
+}
+
+.image-magnified > img {
+  height: 400px;
+  width: 600px;
+  margin-left: -150px;
+  margin-top: -100px;
+  opacity: 0.95;
+}
