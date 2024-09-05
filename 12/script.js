@@ -15,6 +15,21 @@ req.onreadystatechange = function() { // onreadystatechange에 대한 callback f
                 this.classList.toggle("image-selected");
                 
             }
+
+            // 마우스를 올리고 있을 때 image-magnified 클래스 추가
+            div.onmouseover = function() {
+                var element = this;
+                this.timerId = setTimeout(function() {
+                    element.classList.add("image-magnified");
+                }, 1000);
+            }
+
+            // 마우스를 내리면 image-magnified 클래스 삭제
+            div.onmouseout = function() {
+                clearTimeout(this.timerId);
+                this.classList.remove("image-magnified");
+            }
+
             var img = document.createElement("img");
             img.src = data[i];
             div.appendChild(img);
