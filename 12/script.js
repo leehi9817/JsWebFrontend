@@ -55,3 +55,19 @@ function selectAll(btn) {
         btn.value = "Unselect All";
     }
 }
+
+function slideShow(btn) {
+    var images = document.getElementsByClassName("image");
+    var index = 0;
+    images[index].classList.add("image-magnified");
+
+    var intervalId = setInterval( function() {
+        images[index].classList.remove("image-magnified");
+        index++;
+        if(index < images.length) {
+            images[index].classList.add("image-magnified");
+        } else {
+            clearInterval(intervalId);
+        }
+    }, 1000);
+}
