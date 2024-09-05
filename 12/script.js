@@ -23,3 +23,20 @@ req.onreadystatechange = function() { // onreadystatechange에 대한 callback f
     }
 }
 req.send(); // request 전송
+
+function selectAll(btn) {
+    var images = document.getElementsByClassName("image"); // image 클래스를 가진 모든 태그 가져오기
+    for(var i = 0; i < images.length; i++) {
+        if (btn.value == "Unselect All") {
+            images[i].classList.remove("image-selected");
+        } else {
+            images[i].classList.add("image-selected");
+        }
+    }
+
+    if (btn.value == "Unselect All") {
+        btn.value = "Select All";
+    } else {
+        btn.value = "Unselect All";
+    }
+}
