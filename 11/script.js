@@ -1,6 +1,25 @@
+function errFunc() {
+    throw "404";
+    console.log("this code will not be executed");
+}
+
+function func() {
+    try {
+        console.log("function - 1");
+        errFunc();
+        console.log("function - 2");
+    }
+    catch (e) {
+        console.log("catch error in function : ", e);
+    }
+    finally {
+        console.log("finally in function - this code will always be executed");
+    }
+}
+
 try {
     console.log("try - 1");
-    throw 404;
+    func();
     console.log("try - 2");
 }
 catch (e) {
